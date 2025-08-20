@@ -1,0 +1,34 @@
+<mat-grid-list *ngIf="productosListFiltrado.length > 0" [cols]="cols | async" [rowHeight]="''+(hightCols | async)" gutterSize="1px">
+  <mat-grid-tile *ngFor="let option of productosListFiltrado">
+    <mat-card class="example-card" outlined>
+      <div class="relative image-zoom-container">
+        <img mat-card-image [src]="option.imageUrl" class="" width="100%" height="100%" (click)="utils.navigateToProductDetail(option.productId || 0)"/>
+        <div class="absolute bottom-2 right-2">
+          <button mat-mini-fab style="background-color: #f28020;"
+            (click)="carritoService.agregarProductoAlCarrito(option)" aria-label="Example icon-button with a heart icon"
+            class="flex justify-center items-center bg-white rounded-full shadow-lg">
+            <i class="fal fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image" (click)="utils.navigatetoProviderDetail(option.providerId)"
+        matTooltip="Ir a perfil del proveedor"
+        [style.border]="(option.provider?.verified) ? '4px solid' : '0px solid'"
+        [style.border-color]="option.provider?.verified ? 'gold' : 'transparent'"
+        [style.background-image]="'url(' + option.provider?.imageUrl + ')'"
+          style="background-size: cover;"></div>
+        <mat-card-title class="example-title" [matTooltip]="option.name.length > 9 ? option.name : ''" [matTooltipPosition]="'after'"
+          [matTooltipClass]="'tooltip-custom'" [matTooltipShowDelay]="500"
+          [matTooltipHideDelay]="500" [matTooltipDisabled]="option.name.length <= 9"
+          [style.cursor]="'pointer'" matTooltipPosition="above"
+          matTooltipClass="tooltip-custom" matTooltipShowDelay="500" matTooltipHideDelay="500"
+        (click)="utils.navigateToProductDetail(option.productId || 0)">{{option.name | truncate: ((truncatedText | async) ?? 10)}}</mat-card-title>
+        <mat-card-subtitle class="example-subtitle"(click)="utils.navigateToProductDetail(option.productId || 0)">Bs. {{option.price}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list *ngIf="productosListFiltrado.length == 0" [cols]="5" rowHeight="32:33" gutterSize="1px">
+  No se encuentran productos
+</mat-grid-list>

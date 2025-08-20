@@ -1,0 +1,48 @@
+@import '../../../../../custom-palettes.scss';
+@include inventualSidebarMuneStyle;
+@include inventualInputFieldStyle;
+@include inventualSelectFieldStyle;
+@include inventualCalenderFieldStyle;
+@include inventualHeaderSearchAction;
+@include inventualMaterialBtn;
+@include commonActionMenuStyle;
+@include inventualMaterialTableStyle;
+@include inventualInputFieldFileStyle;
+@include inventualTextareaFieldStyle;
+@include productCounter;
+@include popupCommonStyle;
+@include inventualPopupClose;
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.inventual-popup-inner {
+    width: 700px;
+    @media (min-width: 768px) and (max-width: 991px) {
+        width: 600px;
+    }
+    @media (min-width: 576px) and (max-width: 767px) {
+		width: 440px;
+	}
+    @media (min-width: 450px) and (max-width: 575px) {
+		width: 350px;
+	}
+    @media (max-width: 449px) {
+		width: 100%;
+	}
+}
+.inventual-popup-inner {
+    width: 700px;
+    @media (min-width: 768px) and (max-width: 991px) {
+        width: 600px;
+    }
+    @media (min-width: 576px) and (max-width: 767px) {
+		width: 440px;
+	}
+    @media (min-width: 450px) and (max-width: 575px) {
+		width: 350px;
+	}
+    @media (max-width: 449px) {
+		width: 100%;
+	}
+}

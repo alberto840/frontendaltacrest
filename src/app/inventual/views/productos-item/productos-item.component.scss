@@ -1,0 +1,60 @@
+@import '../../../../custom-palettes.scss';
+mat-card-header{
+  padding: 10px;
+  max-height: 50px;  
+  width: 100%;
+  cursor: pointer;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.image-zoom-container {
+    overflow: hidden; /* Oculta el contenido que se sale del contenedor */
+    position: relative;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .image-zoom-container img {
+    transition: transform 0.3s ease; /* Transición suave */
+  }
+  
+  .image-zoom-container:hover img {
+    transform: scale(1.1); /* Escala la imagen al 110% */
+  }
+.example-card {
+  width: 90%;
+  height: 90%;
+    display: flex;
+  }
+  
+  .example-header-image {
+    margin: 0;    
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+}
+
+//sidebar menu style
+@include inventualSidebarMuneStyle;
+.inventual-dashboard-main.sidebar-enable {
+  .apexcharts-canvas {
+    width: 100% !important;
+  }
+}
+.inventual-bar-chart h5 {
+  @apply left-[50%] translate-x-[-50%] bottom-[25px];
+  [dir="rtl"] {
+    @apply translate-x-[50%];
+  }
+}
+.common-blue-badge {
+  @apply h-5 text-nowrap px-2.5 bg-primary rounded inline-block text-white text-[11px] font-bold leading-5;
+}
+.inventual-menu-overlay-dashboard.sidebar-enable {
+  @media (max-width: 1900px) {
+    @apply fixed top-0 start-0 end-0 bottom-0 z-10 bg-black/60;
+  }
+}
